@@ -1,0 +1,11 @@
+__pycache__/
+cache/
+*.pyc
+*.pyo
+output
+theme
+plugins
+*.zhs.rst
+content/uml
+GH_TOKEN
+.vscode/

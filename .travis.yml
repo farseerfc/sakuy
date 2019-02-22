@@ -1,0 +1,46 @@
+sudo: required
+dist: trusty
+
+language: python
+
+python:
+    - "3.6"
+
+cache:
+    - pip
+
+before_install:
+    - sudo apt-get update
+    - sudo apt-get install ditaa parallel graphviz fonts-noto-cjk
+    - ditaa -h || true
+
+install:
+    - sudo pip install 'pelican'
+    - sudo pip install jinja2 py3babel babel beautifulsoup4 markdown
+    - wget "http://downloads.sourceforge.net/project/plantuml/plantuml.jar?r=&ts=1424308684&use_mirror=jaist" -O plantuml.jar
+    - sudo mkdir -p /opt/plantuml
+    - sudo cp plantuml.jar /opt/plantuml
+    - echo "#! /bin/sh" > plantuml
+    - echo 'exec java -jar /opt/plantuml/plantuml.jar "$@"' >> plantuml
+    - sudo install -m 755 -D plantuml /usr/bin/plantuml
+    - plantuml -version
+    - sudo locale-gen zh_HK.UTF-8
+    - locale -a
+    - pelican --version
+
+script:
+    - git config --global user.email "$GIT_EMAIL"
+    - git config --global user.name "$GIT_NAME"
+    - git config --global push.default simple
+    - git clone --depth 1 https://github.com/farseerfc/pelican-plugins plugins
+    - git clone --depth 1 https://$GH_TOKEN@github.com/farseerfc/sak.uy output
+    - make html
+    - ./renderpdf.sh
+    - env SITEURL="sak.uy" make publish
+
+after_success:
+    - cd output
+    - git add -A .
+    - git commit -m "update from travis"
+    - git push --quiet
+
