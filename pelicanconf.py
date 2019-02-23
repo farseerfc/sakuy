@@ -110,7 +110,10 @@ TYPOGRIFY = False
 PYGMENTS_STYLE = 'monokai'
 GITHUB_USER = 'farseerfc'
 GITHUB_SHOW_USER_LINK = True
-GITHUB_REPO = 'farseerfc/sak.uy'
+GITHUB_REPO = 'farseerfc/farseerfc.github.io'
+GITHUB_SIDEBAR = False
+OTHER_BLOG = 'https://farseerfc.me/'
+OTHER_BLOG_TITLE = 'Farseerfc的小窩'
 DISPLAY_BREADCRUMBS = True
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORY_IN_BREADCRUMBS = True
@@ -129,9 +132,11 @@ DIRECT_TEMPLATES = (('search', 'index', 'categories', 'authors', 'archives',
 # TWITTER_USERNAME = 'farseerfc'
 # TWITTER_WIDGET_ID = "538997172142759936"
 
-AVATAR = 'images/avatar.jpg'
+AVATAR = 'images/avatar.png'
 ABOUT_PAGE = "about.html"
 ABOUT_ME = """<h3 style="text-align:center">
+<a href="https://farseerfc.me/"                  target="_blank">
+<i class="fa fa-home" style="text-align:center"></i></a>
 <a href="https://twitter.com/farseerfc"                  target="_blank">
 <i class="fa fa-twitter" style="text-align:center"></i></a>
 <a href="https://github.com/farseerfc"                   target="_blank">
