@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/farseerfc/sakuy.svg?branch=master)](https://travis-ci.org/farseerfc/sakuy)
 
-Pelican source for my new blog, see http://farseerfc.me/
+Pelican source for my collection of Touhou songs lyrics blog, see http://sak.uy/
 
 ## License
 
